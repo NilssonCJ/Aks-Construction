@@ -2,21 +2,29 @@
 
 ## GitHub actions
 
+### General
+
+First step is usually to pull the Kubernetes events
+
+```powershell
+$RG=""
+$AKSNAME=""
+
+az aks list -o table
+az aks get-credentials -n $AKSNAME -g $RG --admin --overwrite-existing
+kubectl get events
+```
+
 ### Verifying Connectivity
 
 Checking DNS
+
 ```powershell
 $DNSDOMAIN=""
 $DNSRG=""
 $RECORDNAME=""
+
 az network dns record-set list -g $DNSRG -z $DNSDOMAIN --query "[?name=='$RECORDNAME'][{type:type,fqdn:fqdn,aRecords:aRecords,txtRecords:txtRecords}]"
-
-
-$RG=""
-$AKSNAME=""
-az aks list -o table
-az aks get-credentials -n $AKSNAME -g $RG --admin --overwrite-existing
-kubectl get ing
 ```
 
 ### Errors
