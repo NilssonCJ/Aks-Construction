@@ -1,5 +1,7 @@
 # Troubleshooting
 
+Common errors and resolutions that you may encounter when deploying AKS using the bicep templates or the sample GitHub action workflows.
+
 ## GitHub actions
 
 ### General
@@ -17,7 +19,7 @@ kubectl get events
 
 ### Verifying Connectivity
 
-Checking DNS
+Check that DNS is configured to point to the Ingress IP
 
 ```powershell
 $DNSDOMAIN=""
